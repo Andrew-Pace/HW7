@@ -170,7 +170,7 @@ class Ui__frm_StateCalculator(object):
 
         self._grp_StateProperties = QtWidgets.QGroupBox(_frm_StateCalculator)
         self._grp_StateProperties.setObjectName("_grp_StateProperties")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self._grp_StateProperties)
+        self.verticalLayout_2 = QtWidgets.QHBoxLayout(self._grp_StateProperties)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
 
         # making groupbox inside state props
@@ -196,6 +196,7 @@ class Ui__frm_StateCalculator(object):
         self._grp_S1StateProperties.setLayout(self.vertlayout3)
         self.verticalLayout_2.addWidget(self._grp_S1StateProperties)
 
+        # making state 2 box
         self._grp_S2StateProperties = QtWidgets.QGroupBox("State 2")
         self.vertlayout4 = QtWidgets.QVBoxLayout(self._grp_StateProperties)
 
@@ -213,9 +214,35 @@ class Ui__frm_StateCalculator(object):
         self._lbl_SatVapProps.setText("")
         self._lbl_SatVapProps.setObjectName("_lbl_SatVapProps")
         self.vertlayout4.addWidget(self._lbl_SatVapProps)
-
+        
+        #adding state 2 box to state props box
         self._grp_S2StateProperties.setLayout(self.vertlayout4)
         self.verticalLayout_2.addWidget(self._grp_S2StateProperties)
+        
+        
+        # changed values box
+        self._grp_changedProperties = QtWidgets.QGroupBox("Changed Values")
+        self.vertlayout5 = QtWidgets.QVBoxLayout(self._grp_StateProperties)
+
+        self._lbl_changedState = QtWidgets.QLabel(self._grp_changedProperties)
+        self._lbl_changedState.setObjectName("_lbl_changedState")
+        self.vertlayout5.addWidget(self._lbl_changedState)
+        self._lbl_changedStateProperties = QtWidgets.QLabel(self._grp_changedProperties)
+        self._lbl_changedStateProperties.setObjectName("_lbl_changedStateProperties")
+        self.vertlayout5.addWidget(self._lbl_changedStateProperties)
+        self._lbl_SatLiqProps = QtWidgets.QLabel(self._grp_changedProperties)
+        self._lbl_SatLiqProps.setText("")
+        self._lbl_SatLiqProps.setObjectName("_lbl_SatLiqProps")
+        self.vertlayout5.addWidget(self._lbl_SatLiqProps)
+        self._lbl_SatVapProps = QtWidgets.QLabel(self._grp_changedProperties)
+        self._lbl_SatVapProps.setText("")
+        self._lbl_SatVapProps.setObjectName("_lbl_SatVapProps")
+        self.vertlayout5.addWidget(self._lbl_SatVapProps)
+
+        self._grp_changedProperties.setLayout(self.vertlayout5)
+        self.verticalLayout_2.addWidget(self._grp_changedProperties)
+        
+        
 
 
         self.verticalLayout.addWidget(self._grp_StateProperties)

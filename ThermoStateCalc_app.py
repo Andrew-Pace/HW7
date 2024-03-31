@@ -39,6 +39,9 @@ class main_window(QWidget, Ui__frm_StateCalculator):
         self._cmb_Property1.currentIndexChanged.connect(self.S1setUnits)
         self._cmb_Property2.currentIndexChanged.connect(self.S1setUnits)
         self._pb_Calculate.clicked.connect(self.S1calculateProperties)
+
+
+        # self.comparethem(self.S1properties, self.S2properties)
         pass
 
     #
@@ -135,7 +138,8 @@ class main_window(QWidget, Ui__frm_StateCalculator):
         elif 'Entropy' in SpecifiedS1Property2:
             self._lbl_S1Property2_Units.setText(self.s_Units)
             if UnitChange:
-                SP[1] = SP[1] * UC.btuperlbF_to_kJperkgC if SI else SP[1] * UC.kJperkgc_to_btuperlbF  # fixed mistake in UC file
+                SP[1] = SP[1] * UC.btuperlbF_to_kJperkgC if SI else SP[
+                                                                        1] * UC.kJperkgc_to_btuperlbF  # fixed mistake in UC file
         elif 'Volume' in SpecifiedS1Property2:
             self._lbl_S1Property2_Units.setText(self.v_Units)
             if UnitChange:
@@ -968,6 +972,8 @@ class main_window(QWidget, Ui__frm_StateCalculator):
         stProps += "\nSpecific Volume = v={:0.5f} ({:})".format(self.vf + self.x * self.vgf, self.v_Units)
         stProps += "\nQuality = {:0.3f}".format(self.x)
         self.stProps = stProps
+        self.cstProps = [self.p, self.t, self.tSat, self.uf + self.x * self.ugf, self.hf + self.x * self.hgf, self.sf +
+                         self.x * self.sgf, self.vf + self.x * self.vgf, self.x]
 
     def calculateProperties(self):
         """
@@ -1486,6 +1492,15 @@ class main_window(QWidget, Ui__frm_StateCalculator):
                 self.x = self.clamp(float(self._le_Property2.text()), 0.0, 1.0)
                 self.makeLabel_2Phase()
         self._lbl_StateProperties.setText(self.stProps)
+
+    # def comparethem(self):
+    #
+    #     print(self.S1stProps)
+    #     print(self.stProps)
+    #
+    #     pass
+
+
 
 
 # endregion
