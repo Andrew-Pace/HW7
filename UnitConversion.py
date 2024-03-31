@@ -44,7 +44,7 @@ class UC():  # a units conversion class
 
     #specific volume conversion factors
     ft3perlb_to_m3perkg = ft3_to_m3/lbf_to_kg
-    m3perkg_to_ft3perlb = ft3perlb_to_m3perkg
+    m3perkg_to_ft3perlb = 1/ft3perlb_to_m3perkg
 
     @classmethod  # this notation allows this method to be directly used from the class by UC.viscosityEnglishToSI
     def viscosityEnglishToSI(cls, mu, toSI=True):
