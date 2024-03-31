@@ -45,7 +45,7 @@ class main_window(QWidget, Ui__frm_StateCalculator):
         pass
 
     #
-    # state 1 exclusive starts here 
+    # state 1 exclusive starts here
     #
     def S1setUnits(self):  # for state 1
         """
@@ -1500,6 +1500,30 @@ class main_window(QWidget, Ui__frm_StateCalculator):
     #     print(self.stProps)
     #
     #     pass
+    def comparethem(self):
+        # Assuming self.S1properties and self.S2properties are dictionaries with property names as keys
+        # Example: {'p': 101.325, 'T': 100, ...}
+
+        state_change_properties = {}  # Dictionary to store the changes
+
+        for property_name in self.S1properties.keys():
+            # Calculate the change for each property
+            change = self.S2properties[property_name] - self.S1properties[property_name]
+            state_change_properties[property_name] = change
+
+        # Now, update the GUI element that shows the changes. This is a placeholder:
+        self.updateStateChangeDisplay(state_change_properties)
+
+
+    def updateStateChangeDisplay(self, changes):
+        # Update the GUI with the changes. This method depends on how your GUI is structured.
+        # You might set the text of labels in the State Change group box, for example:
+        # Assuming you have labels like self._lbl_DeltaP, self._lbl_DeltaT, etc. for each property.
+
+        self._lbl_DeltaP.setText(f"ΔP: {changes['p']:.2f} [units]")  # Update units appropriately
+        self._lbl_DeltaT.setText(f"ΔT: {changes['T']:.2f} [units]")
+        # ... and so on for each property
+
 
 
 
