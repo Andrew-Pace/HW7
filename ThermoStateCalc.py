@@ -173,48 +173,49 @@ class Ui__frm_StateCalculator(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self._grp_StateProperties)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
 
+        # making groupbox inside state props
         self._grp_S1StateProperties = QtWidgets.QGroupBox("State 1")
         self.vertlayout3 = QtWidgets.QVBoxLayout(self._grp_S1StateProperties)
 
-        self._lbl_State = QtWidgets.QLabel(self._grp_StateProperties)
-        self._lbl_State.setObjectName("_lbl_State")
-        self.vertlayout3.addWidget(self._lbl_State)
-        self._lbl_StateProperties = QtWidgets.QLabel(self._grp_StateProperties)
-        self._lbl_StateProperties.setObjectName("_lbl_StateProperties")
-        self.vertlayout3.addWidget(self._lbl_StateProperties)
-        self._lbl_SatLiqProps = QtWidgets.QLabel(self._grp_StateProperties)
-        self._lbl_SatLiqProps.setText("")
-        self._lbl_SatLiqProps.setObjectName("_lbl_SatLiqProps")
-        self.vertlayout3.addWidget(self._lbl_SatLiqProps)
-        self._lbl_SatVapProps = QtWidgets.QLabel(self._grp_StateProperties)
-        self._lbl_SatVapProps.setText("")
-        self._lbl_SatVapProps.setObjectName("_lbl_SatVapProps")
-        self.vertlayout3.addWidget(self._lbl_SatVapProps)
+        self._lbl_S1State = QtWidgets.QLabel(self._grp_S1StateProperties)
+        self._lbl_S1State.setObjectName("_lbl_S1State")
+        self.vertlayout3.addWidget(self._lbl_S1State)
+        self._lbl_S1StateProperties = QtWidgets.QLabel(self._grp_S1StateProperties)
+        self._lbl_S1StateProperties.setObjectName("_lbl_S1StateProperties")
+        self.vertlayout3.addWidget(self._lbl_S1StateProperties)
+        self._lbl_S1SatLiqProps = QtWidgets.QLabel(self._grp_S1StateProperties)
+        self._lbl_S1SatLiqProps.setText("")
+        self._lbl_S1SatLiqProps.setObjectName("_lbl_S1SatLiqProps")
+        self.vertlayout3.addWidget(self._lbl_S1SatLiqProps)
+        self._lbl_S1SatVapProps = QtWidgets.QLabel(self._grp_S1StateProperties)
+        self._lbl_S1SatVapProps.setText("")
+        self._lbl_S1SatVapProps.setObjectName("_lbl_S1SatVapProps")
+        self.vertlayout3.addWidget(self._lbl_S1SatVapProps)
 
-
+        # adding s1stateprops to state props
         self._grp_S1StateProperties.setLayout(self.vertlayout3)
         self.verticalLayout_2.addWidget(self._grp_S1StateProperties)
 
-        # self._grp_S2StateProperties = QtWidgets.QGroupBox("State 2")
-        # self.vertlayout4 = QtWidgets.QVBoxLayout(self._grp_StateProperties)
-        #
-        # self._lbl_State = QtWidgets.QLabel(self._grp_StateProperties)
-        # self._lbl_State.setObjectName("_lbl_State")
-        # self.vertlayout4.addWidget(self._lbl_State)
-        # self._lbl_StateProperties = QtWidgets.QLabel(self._grp_StateProperties)
-        # self._lbl_StateProperties.setObjectName("_lbl_StateProperties")
-        # self.vertlayout4.addWidget(self._lbl_StateProperties)
-        # self._lbl_SatLiqProps = QtWidgets.QLabel(self._grp_StateProperties)
-        # self._lbl_SatLiqProps.setText("")
-        # self._lbl_SatLiqProps.setObjectName("_lbl_SatLiqProps")
-        # self.vertlayout4.addWidget(self._lbl_SatLiqProps)
-        # self._lbl_SatVapProps = QtWidgets.QLabel(self._grp_StateProperties)
-        # self._lbl_SatVapProps.setText("")
-        # self._lbl_SatVapProps.setObjectName("_lbl_SatVapProps")
-        # self.vertlayout4.addWidget(self._lbl_SatVapProps)
-        #
-        # self._grp_S1StateProperties.setLayout(self.vertlayout3)
-        # self.verticalLayout_2.addWidget(self._grp_S2StateProperties)
+        self._grp_S2StateProperties = QtWidgets.QGroupBox("State 2")
+        self.vertlayout4 = QtWidgets.QVBoxLayout(self._grp_StateProperties)
+
+        self._lbl_State = QtWidgets.QLabel(self._grp_S2StateProperties)
+        self._lbl_State.setObjectName("_lbl_State")
+        self.vertlayout4.addWidget(self._lbl_State)
+        self._lbl_StateProperties = QtWidgets.QLabel(self._grp_S2StateProperties)
+        self._lbl_StateProperties.setObjectName("_lbl_StateProperties")
+        self.vertlayout4.addWidget(self._lbl_StateProperties)
+        self._lbl_SatLiqProps = QtWidgets.QLabel(self._grp_S2StateProperties)
+        self._lbl_SatLiqProps.setText("")
+        self._lbl_SatLiqProps.setObjectName("_lbl_SatLiqProps")
+        self.vertlayout4.addWidget(self._lbl_SatLiqProps)
+        self._lbl_SatVapProps = QtWidgets.QLabel(self._grp_S2StateProperties)
+        self._lbl_SatVapProps.setText("")
+        self._lbl_SatVapProps.setObjectName("_lbl_SatVapProps")
+        self.vertlayout4.addWidget(self._lbl_SatVapProps)
+
+        self._grp_S2StateProperties.setLayout(self.vertlayout4)
+        self.verticalLayout_2.addWidget(self._grp_S2StateProperties)
 
 
         self.verticalLayout.addWidget(self._grp_StateProperties)
@@ -222,6 +223,7 @@ class Ui__frm_StateCalculator(object):
         self.verticalLayout.addItem(spacerItem1)
 
         self.retranslateUi(_frm_StateCalculator)
+        self._cmb_S1Property2.setCurrentIndex(1)
         self._cmb_Property2.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(_frm_StateCalculator)
 
@@ -283,7 +285,11 @@ class Ui__frm_StateCalculator(object):
         
         self._pb_Calculate.setText(_translate("_frm_StateCalculator", "Calculate"))
         self._grp_StateProperties.setTitle(_translate("_frm_StateCalculator", "State Properties"))
+        self._lbl_S1State.setText(_translate("_frm_StateCalculator", "State:  saturated"))
+        self._lbl_S1StateProperties.setText(_translate("_frm_StateCalculator", "Pressure = 1000 kPa\n"
+                                                                               "Temperature = 100 C\n"
+                                                                               "X = 1.0"))
         self._lbl_State.setText(_translate("_frm_StateCalculator", "State:  saturated"))
         self._lbl_StateProperties.setText(_translate("_frm_StateCalculator", "Pressure = 1000 kPa\n"
-"Temperature = 100 C\n"
-"X = 1.0"))
+                                                                               "Temperature = 100 C\n"
+                                                                               "X = 1.0"))
