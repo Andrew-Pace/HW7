@@ -41,7 +41,8 @@ class main_window(QWidget, Ui__frm_StateCalculator):
         self._pb_Calculate.clicked.connect(self.S1calculateProperties)
 
 
-        # self.comparethem(self.S1properties, self.S2properties)
+        self.comparethem(self.S1properties, self.S2properties)
+
         pass
 
     #
