@@ -237,6 +237,13 @@ class Ui__frm_StateCalculator(object):
         self._lbl_SatVapProps = QtWidgets.QLabel(self._grp_changedProperties)
         self._lbl_SatVapProps.setText("")
         self._lbl_SatVapProps.setObjectName("_lbl_SatVapProps")
+        # self._lbl_DeltaP.setText(f"ΔP: {differences.get('p', 'N/A'):.2f} [units]")
+        # self._lbl_DeltaT.setText(f"ΔT: {differences.get('T', 'N/A'):.2f} [units]")
+        # self._lbl_DeltaV.setText(f"ΔV: {differences.get('v', 'N/A'):.5f} [units]")
+        # self._lbl_DeltaU.setText(f"ΔU: {differences.get('u', 'N/A'):.2f} [units]")
+        # self._lbl_DeltaH.setText(f"ΔH: {differences.get('h', 'N/A'):.2f} [units]")
+        # self._lbl_DeltaS.setText(f"ΔS: {differences.get('s', 'N/A'):.2f} [units]")
+        # self._lbl_DeltaX.setText(f"ΔX: {differences.get('x', 'N/A'):.2f} [units]")
         self.vertlayout5.addWidget(self._lbl_SatVapProps)
 
         self._grp_changedProperties.setLayout(self.vertlayout5)
