@@ -41,7 +41,7 @@ class main_window(QWidget, Ui__frm_StateCalculator):
         self._pb_Calculate.clicked.connect(self.S1calculateProperties)
 
 
-        self.comparethem(self.S1properties, self.S2properties)
+        # self.comparethem(self.S1properties, self.S2properties)
 
         pass
 
@@ -1495,90 +1495,93 @@ class main_window(QWidget, Ui__frm_StateCalculator):
                 self.makeLabel_2Phase()
         self._lbl_StateProperties.setText(self.stProps)
 
+# region Comparethem Fails (using ChatGPT to help understand the process)
+    #     def comparethem(self):
+    #
+    #         print(self.S1stProps)
+    #         print(self.stProps)
+    #
+    #         pass
+    #     def comparethem(self):
+    #         # Assuming self.S1properties and self.S2properties are dictionaries with property names as keys
+    #         # Example: {'p': 101.325, 'T': 100, ...}
+    #
+    #         # this code made with the help of ChapGPT, Using Chat to help understand the process
+    #
+    #         state_change_properties = {}  # Dictionary to store the changes
+    #
+    #         for property_name in self.S1properties.keys():
+    #             # Calculate the change for each property
+    #             change = self.S2properties[property_name] - self.S1properties[property_name]
+    #             state_change_properties[property_name] = change
+    #
+    #         # Now, update the GUI element that shows the changes. This is a placeholder:
+    #         self.updateStateChangeDisplay(state_change_properties)
+    #
+    #     def comparethem(self):
+    #         # Assuming self.S1properties and self.S2properties are stored as dictionaries
+    #         # with keys like 'p', 'T', 'x', etc., holding their respective values
+    #         changes = {}  # This will store the differences
+    #
+    #         for key in self.S1properties.keys():
+    #             if key in self.S2properties:
+    #                 # Calculate the difference and format it for display
+    #                 change = self.S2properties[key] - self.S1properties[key]
+    #                 changes[key] = "{:.2f}".format(change)
+    #             else:
+    #                 changes[key] = 'N/A'  # In case a property is not found in one of the states
+    #
+    #         # Now, to display the changes in the GUI:
+    #         # This step heavily depends on how you've structured your "Changed Values" group box.
+    #         # Assuming you have labels like self._lbl_changedP, self._lbl_changedT, etc.:
+    #         self._lbl_changedState.setText(
+    #             f"P change: {changes.get('p', 'N/A')} [units], T change: {changes.get('T', 'N/A')} [units], ...")
+    #
+    #         # You'd continue this for each property you're interested in comparing.
+    #
+    #     def updateStateChangeDisplay(self, changes):
+    #         # Update the GUI with the changes. This method depends on how your GUI is structured.
+    #         # You might set the text of labels in the State Change group box, for example:
+    #
+    #         # This code made with the help of Chapgpt, so far unable to incorporate
+    #
+    #         self._lbl_DeltaP.setText(f"ΔP: {changes['p']:.2f} [units]")  # Update units appropriately
+    #         self._lbl_DeltaT.setText(f"ΔT: {changes['T']:.2f} [units]")
+    #         # ... and so on for each property
+    #
+    #
     # def comparethem(self):
+    #     #made with the help of chatgpt
+    #     properties_keys = ['p', 'T', 'v', 'u', 'h', 's', 'x']
+    #     differences = {}
     #
-    #     print(self.S1stProps)
-    #     print(self.stProps)
-    #
-    #     pass
-    # def comparethem(self):
-    #     # Assuming self.S1properties and self.S2properties are dictionaries with property names as keys
-    #     # Example: {'p': 101.325, 'T': 100, ...}
-    #
-    #     # this code made with the help of ChapGPT
-    #
-    #     state_change_properties = {}  # Dictionary to store the changes
-    #
-    #     for property_name in self.S1properties.keys():
-    #         # Calculate the change for each property
-    #         change = self.S2properties[property_name] - self.S1properties[property_name]
-    #         state_change_properties[property_name] = change
-    #
-    #     # Now, update the GUI element that shows the changes. This is a placeholder:
-    #     self.updateStateChangeDisplay(state_change_properties)
-
-    # def comparethem(self):
-    #     # Assuming self.S1properties and self.S2properties are stored as dictionaries
-    #     # with keys like 'p', 'T', 'x', etc., holding their respective values
-    #     changes = {}  # This will store the differences
-    #
-    #     for key in self.S1properties.keys():
-    #         if key in self.S2properties:
-    #             # Calculate the difference and format it for display
-    #             change = self.S2properties[key] - self.S1properties[key]
-    #             changes[key] = "{:.2f}".format(change)
+    #     for key in properties_keys:
+    #         if key in self.S1properties and key in self.S2properties:
+    #             differences[key] = self.S2properties[key] - self.S1properties[key]
     #         else:
-    #             changes[key] = 'N/A'  # In case a property is not found in one of the states
+    #             differences[key] = 'N/A'  # Handle missing properties
     #
-    #     # Now, to display the changes in the GUI:
-    #     # This step heavily depends on how you've structured your "Changed Values" group box.
-    #     # Assuming you have labels like self._lbl_changedP, self._lbl_changedT, etc.:
-    #     self._lbl_changedState.setText(
-    #         f"P change: {changes.get('p', 'N/A')} [units], T change: {changes.get('T', 'N/A')} [units], ...")
+    #     Update GUI (Assuming you have QLabel objects for each property difference)
+    #     self._lbl_DeltaP.setText(f"ΔP: {differences.get('p', 'N/A'):.2f} [units]")
+    #     self._lbl_DeltaT.setText(f"ΔT: {differences.get('T', 'N/A'):.2f} [units]")
+    #     self._lbl_DeltaV.setText(f"ΔV: {differences.get('v', 'N/A'):.5f} [units]")
+    #     self._lbl_DeltaU.setText(f"ΔU: {differences.get('u', 'N/A'):.2f} [units]")
+    #     self._lbl_DeltaH.setText(f"ΔH: {differences.get('h', 'N/A'):.2f} [units]")
+    #     self._lbl_DeltaS.setText(f"ΔS: {differences.get('s', 'N/A'):.2f} [units]")
+    #     self._lbl_DeltaX.setText(f"ΔX: {differences.get('x', 'N/A'):.2f} [units]")
     #
-    #     # You'd continue this for each property you're interested in comparing.
-
-    # def updateStateChangeDisplay(self, changes):
-    #     # Update the GUI with the changes. This method depends on how your GUI is structured.
-    #     # You might set the text of labels in the State Change group box, for example:
+    #     def comparethem(self):
+    #         # Assuming self.S1properties and self.S2properties are filled correctly
+    #         properties_keys = ['p', 'T', 'v', 'u', 'h', 's', 'x']
+    #         differences = {}
     #
-    #     # This code made with the help of Chapgpt, so far unable to incorporate
-    #
-    #     self._lbl_DeltaP.setText(f"ΔP: {changes['p']:.2f} [units]")  # Update units appropriately
-    #     self._lbl_DeltaT.setText(f"ΔT: {changes['T']:.2f} [units]")
-    #     # ... and so on for each property
-
-
-def comparethem(self):
-    #made with the help of chatgpt
-    properties_keys = ['p', 'T', 'v', 'u', 'h', 's', 'x']
-    differences = {}
-
-    for key in properties_keys:
-        if key in self.S1properties and key in self.S2properties:
-            differences[key] = self.S2properties[key] - self.S1properties[key]
-        else:
-            differences[key] = 'N/A'  # Handle missing properties
-
-    # Update GUI (Assuming you have QLabel objects for each property difference)
-    # self._lbl_DeltaP.setText(f"ΔP: {differences.get('p', 'N/A'):.2f} [units]")
-    # self._lbl_DeltaT.setText(f"ΔT: {differences.get('T', 'N/A'):.2f} [units]")
-    # self._lbl_DeltaV.setText(f"ΔV: {differences.get('v', 'N/A'):.5f} [units]")
-    # self._lbl_DeltaU.setText(f"ΔU: {differences.get('u', 'N/A'):.2f} [units]")
-    # self._lbl_DeltaH.setText(f"ΔH: {differences.get('h', 'N/A'):.2f} [units]")
-    # self._lbl_DeltaS.setText(f"ΔS: {differences.get('s', 'N/A'):.2f} [units]")
-    # self._lbl_DeltaX.setText(f"ΔX: {differences.get('x', 'N/A'):.2f} [units]")
-
-    # Print differences to the console to verify calculation is happening
-    print("Comparing State 1 and State 2 Properties:")
-    for key, diff in differences.items():
-        if diff != 'N/A':
-            print(f"{key.upper()} difference: {diff:.2f} [units]")
-        else:
-            print(f"{key.upper()} difference: N/A")
-
-    # Note: Replace "[units]" with actual units or adjust based on selected unit system (SI or English).
-
+    #         for key in properties_keys:
+    #             if key in self.S1properties and key in self.S2properties:
+    #                 difference = self.S2properties[key] - self.S1properties[key]
+    #                 differences[key] = difference
+    #                 print(f"{key.upper()} difference: {difference:.2f}")  # Print to console for verification
+    #             else:
+    #                 differences[key] = 'N/A'  # Placeholder for missing properties
 
 # endregion
 
